@@ -47,7 +47,7 @@ connectDB()
 const app = express()
 app.use(cors({
     credentials : true,
-    origin : process.env.FRONTEND_URL || "http://localhost:8080",
+    origin :  "https://e-learning-kblf.onrender.com",
 }))
 app.use(express.json())
 app.use(cookieParser())

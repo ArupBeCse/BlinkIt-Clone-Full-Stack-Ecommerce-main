@@ -99,7 +99,7 @@ const Register = () => {
                             value={data.email}
                             onChange={handleChange}
                             placeholder='Enter your email'
-                        />
+                        /> 
                     </div>
                     <div className='grid gap-1'>
                         <label htmlFor='password'>Password :</label>
