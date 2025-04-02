@@ -3,6 +3,8 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 dotenv.config()
 import cookieParser from 'cookie-parser'
+import morgan from 'morgan'
+import helmet from 'helmet'
 // import connectDB from './config/connectDB.js'
 import userRouter from './route/user.route.js'
 import categoryRouter from './route/category.route.js'
@@ -41,13 +43,18 @@ connectDB()
 
 
 
+
 const app = express()
 app.use(cors({
-    origin: "*", // Allow all origins
-    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
-}));
+    credentials : true,
+    origin : process.env.FRONTEND_URL || "http://localhost:8080",
+}))
 app.use(express.json())
 app.use(cookieParser())
+app.use(morgan())
+app.use(helmet({
+    crossOriginResourcePolicy : false
+}))
 
 const PORT = 8080 || process.env.PORT 
 
