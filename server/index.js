@@ -47,10 +47,6 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 app.use(cookieParser())
-app.use(morgan())
-app.use(helmet({
-    crossOriginResourcePolicy : false
-}))
 
 const PORT = 8080 || process.env.PORT 
 
