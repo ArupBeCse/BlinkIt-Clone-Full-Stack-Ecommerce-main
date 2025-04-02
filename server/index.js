@@ -3,8 +3,6 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 dotenv.config()
 import cookieParser from 'cookie-parser'
-import morgan from 'morgan'
-import helmet from 'helmet'
 // import connectDB from './config/connectDB.js'
 import userRouter from './route/user.route.js'
 import categoryRouter from './route/category.route.js'
@@ -44,8 +42,10 @@ connectDB()
 
 
 const app = express()
-app.use(cors(origin="*"))
-app.use(express.json())
+app.use(cors({
+    origin: ["https://stratify-rose.vercel.app"], // Add your frontend origin here
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+}));app.use(express.json())
 app.use(cookieParser())
 
 const PORT = 8080 || process.env.PORT 
