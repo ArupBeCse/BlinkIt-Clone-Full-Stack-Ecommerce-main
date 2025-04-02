@@ -43,12 +43,8 @@ connectDB()
 
 
 
-
 const app = express()
-app.use(cors({
-    credentials : true,
-    origin :  "https://e-learning-kblf.onrender.com",
-}))
+app.use(cors())
 app.use(express.json())
 app.use(cookieParser())
 app.use(morgan())
