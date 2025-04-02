@@ -43,9 +43,10 @@ connectDB()
 
 const app = express()
 app.use(cors({
-    origin: ["https://stratify-rose.vercel.app"], // Add your frontend origin here
+    origin: "*", // Allow all origins
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
-}));app.use(express.json())
+}));
+app.use(express.json())
 app.use(cookieParser())
 
 const PORT = 8080 || process.env.PORT 
